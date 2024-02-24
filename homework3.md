@@ -25,15 +25,15 @@ Beyond space allocated for use by the function like local variables, the stack f
 
 ## Crackme
 #### File open in IDA:
-![Image](https://github.com/srcruse/Reverse-Engineering/blob/main/hw3_ida.png)
+![Image](https://github.com/srcruse/Reverse-Engineering/blob/main/Pictures/hw3_ida.png)
 #### File open in Ghidra:
-![Image](https://github.com/srcruse/Reverse-Engineering/blob/main/hw3_ghidra.png)
+![Image](https://github.com/srcruse/Reverse-Engineering/blob/main/Pictures/hw3_ghidra.png)
 
 Solving this crackme was as simple as visiting the function `validate_key`, which takes one parameter, and then returns a boolean reflecting whether that parameter is a multiple of 1223 with the line: `return param_1 % 1223 == 0;`
 
 Because I already knew that the `main` function's purpose was to gather user input and then pass that input as a parameter to the `validate_key` function and then either pass or fail depending on the value of the boolean, 
 I knew that the solution would be to pass in a number that was a multiple of 1223. 
-![Image](https://github.com/srcruse/Reverse-Engineering/blob/main/hw3_crackme.png)
+![Image](https://github.com/srcruse/Reverse-Engineering/blob/main/Pictures/hw3_crackme.png)
 
 I found Ghidra significantly easier to use than IDA; my experience is likely biased because we reviewed the use of Ghidra in class, but I feel I would have had an easier time using Ghidra even if I was left to my own devices
 on both programs. 
